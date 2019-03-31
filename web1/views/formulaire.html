@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="main.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+</head>
+<body>
+<form method="POST" action="ajoutEvent.php">
+<caption>Ajouter Employe</caption>
+		
+<div class="form-group col-md-6">
+<label for="id">ID</label>
+<input type="number" class="form-control" name="id" placeholder="id" >
+</div>
+</div>
+
+
+
+<div class="form-row">
+<div class="form-group col-md-6">
+<label for="nom">Titre</label>
+<input type="text" class="form-control" name="nom" ="titre" placeholder="titre" id="nom"></td>
+<td><span id="missnom"></span></td>
+</div>
+
+<div class="form-row">
+<div class="form-group col-md-6">
+<label for="nbmax">Capacite</label>
+<input type="number" class="form-control" name="nbmax" placeholder="Capacite" >
+</div>
+</div>
+
+<div class="form-row">
+<div class="form-group col-md-6">
+<label for="date">Date </label>
+<input type="date" class="form-control" name="date" placeholder="Date" >
+</div>
+
+<div class="form-group col-md-6">
+<label for="debut">debut</label>
+<input type="time" class="form-control" name="debut" placeholder="Debut" >
+</div>
+</div>
+
+<div class="form-group col-md-6">
+<label for="fin">fin</label>
+<input type="time" class="form-control" name="fin" placeholder="Fin" >
+</div>
+</div>
+
+
+<div class="form-group col-md-6">
+  <div class="input-group-prepend">
+  <label for="description">Description</label>
+  </div>
+  <textarea type="text" class="form-control" aria-label="Description" name="description" placeholder="Description" ></textarea>
+</div>
+
+
+
+
+<div class="col-sm-10">
+<button class="btn btn-primary" type="submit" name="ajouter" value="ajouter"> ajouter </button>
+</div>
+
+
+</form>
+	<script>
+
+
+ var formValid = document.getElementById('bouton');
+            var nom = document.getElementById('nom');
+            var missnom = document.getElementById('missnom');
+            var nomValid = /^[A-Za-zéèîïÉÈÎÏ][A-Zéèêàçîï]+([-'\s][A-Za-zéèîïÉÈÎÏ][A-Zéèêàçîï]+)?$/;
+            
+            formValid.addEventListener('click', validation);
+            
+            function validation(event){
+                //Si le champ est vide
+                if (nom.validity.valueMissing){
+                    event.preventDefault();
+                    missnom.textContent = 'Prénom manquant';
+                    missnom.style.color = 'red';
+                //Si le format de données est incorrect
+                }else if (nomValid.test(nom.value) == false){
+                    event.preventDefault();
+                    missnom.textContent = 'Format incorrect';
+                    missnom.style.color = 'orange';
+                }
+            }
+
+</script>
+</body>
+</html>

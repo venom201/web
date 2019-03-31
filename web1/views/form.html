@@ -1,0 +1,183 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <link rel="stylesheet" href="../form.css">
+  <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    
+</head>
+<body>
+
+  
+<form method="POST" action="ajoutPromotion.php">
+  <table>
+    <caption>Ajouter promrotion</caption>
+    <div class="form-row">
+    <div class="form-group col-md-6">
+        <label for="id">ID</label>
+         <input type="number" class="form-control" name="id"  id="id"  placeholder="id" required>
+          <span  id="missid" class="resultat"></span><br>
+        </div>
+        </div>
+
+
+        <div class="form-row">
+    <div class="form-group col-md-6">
+        <label for="nom">Titre</label>
+         <input type="text" class="form-control" name="nom" id="n" placeholder="Titre" required>
+         <span  id="missn" class="resultat"></span><br>
+        </div>
+        </div>
+
+        <div class="form-row">
+    <div class="form-group col-md-6">
+        <label for="debut">Date debut</label>
+         <input type="date" class="form-control" name="debut" id="d" placeholder="Debut" required>
+         <span  id="missd" class="resultat"></span>
+        </div>
+        </div>
+
+        <div class="form-row">
+    <div class="form-group col-md-6">
+        <label for="fin">Date fin</label>
+         <input type="date" class="form-control" name="fin" id="f"   placeholder="Fin" required>
+        <span  id="missf" class="resultat"></span>
+        </div>
+        </div>
+
+
+  
+    <div class="form-group">
+    <label class="col-sm-2 control-label">Pourcentage</label>
+                  <div class="col-sm-8">
+                    <td><select name="pourcentage" id="selector1" class="form-control1">
+                    <option>10</option>
+                    <option>20</option>
+                    <option>25</option>
+                    <option>30</option>
+                    
+
+                  </select></div></td></tr></div></div>
+                
+    <div class="form-group">
+                  <label class="col-sm-2 control-label">Categorie</label>
+                  <div class="col-sm-8">
+                    <td><select name="categorie" id="selector1" class="form-control">
+                    <option>salade</option>
+                    <option>pates</option>
+                    <option>plats</option>
+                    
+
+                  </select></div></td></tr></div></div>
+    <div class="col-sm-10">
+<button class="btn btn-primary" type="submit" id="ajouter" name="ajouter" value="ajouter"> ajouter </button>
+</div>
+
+    
+      </table>
+      </form>
+    </fieldset>
+
+<script>
+
+
+
+  
+      var formValid = document.getElementById('ajouter');
+      /**************************************************************/
+      var id=document.getElementById('id');
+      //var desValid = /^[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/;
+      var missid = document.getElementById('missid');
+      formValid.addEventListener('click', validation_id);
+       function validation_id(event)
+       {
+                //Si le champ est vide
+                if (id.validity.valueMissing)
+                {
+                    event.preventDefault();
+                    missid.textContent = 'ID manquante';
+                    missid.style.color = 'red';
+                //Si le format de données est incorrect
+                }
+                else
+                { 
+                  missnid.textContent = 'ok';
+                    missid.style.color = 'green';
+                }
+        }
+      /*************************************************************/
+      var n=document.getElementById('n');
+      //var desValid = /^[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/;
+      var missn = document.getElementById('missn');
+      formValid.addEventListener('click', validation_n);
+       function validation_n(event)
+       {
+                //Si le champ est vide
+                if (n.validity.valueMissing)
+                {
+                    event.preventDefault();
+                    missn.textContent = 'Titre manquante';
+                    missn.style.color = 'red';
+                //Si le format de données est incorrect
+                }
+                else
+                { 
+                  missn.textContent = 'ok';
+                  missn.style.color = 'green';
+                }
+        }
+      /******************************************************/
+      var  f = document.getElementById('f');
+      var fValid = /^[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/;
+      var missf = document.getElementById('missf');
+      formValid.addEventListener('click', validation);
+      function validation(event){
+                //Si le champ est vide
+                if (f.validity.valueMissing){
+                    event.preventDefault();
+                    missf.textContent = 'Date manquant';
+                    missf.style.color = 'red';
+                //Si le format de données est incorrect
+                }else if (fValid.test(f.value) == false){
+                    event.preventDefault();
+                    missf.textContent = 'Format incorrect';
+                    missf.style.color = 'orange';
+                }else
+                { 
+                     missf.textContent = 'ok';
+                    missf.style.color = 'green';
+                }
+            }
+
+       /******************************************************************/
+
+      var  d = document.getElementById('d');
+     
+      var missd = document.getElementById('missd');
+      formValid.addEventListener('click', validation_d);
+      function validation_d(event)
+      {
+                //Si le champ est vide
+                if (d.validity.valueMissing)
+                {
+                    event.preventDefault();
+                    missd.textContent = 'date manquante';
+                    missd.style.color = 'red';
+                //Si le format de données est incorrect
+                
+                }
+                else
+                { 
+                    missd.textContent = 'ok';
+                    missd.style.color = 'green';
+                }
+            }
+
+      
+</script>
+</body>
+</html>
+

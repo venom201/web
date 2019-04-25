@@ -1,0 +1,30 @@
+input.form-control {
+  outline:0;
+  font-size:14px;
+  width:250px;
+}	
+label.label {
+  display:inline-block;
+  width:200px;
+  text-align: right;
+  font-style: italic;
+  margin-right:5px;
+}
+input.form-control:valid {
+  border:3px solid #0a0;
+}
+input.form-control:invalid {
+  border:3px solid #a00;
+}
+input.form-control:valid + span:before  {
+  content: "\f00c";
+  font-family: "FontAwesome";
+  color:#0a0;
+  font-size: 1.5em;
+}	
+input.form-control:invalid+span:before  {
+  content: "\f00d";
+  font-family: "FontAwesome";
+  color:#a00;
+  font-size: 1.5em;
+}
